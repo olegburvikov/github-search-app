@@ -1,0 +1,36 @@
+.repositories-list-item {
+    border-bottom: 1px solid #333;
+    padding: 24px 10px;
+}
+
+.repositories-list-item__name {
+    text-decoration: none;
+}
+
+.repositories-list-item__description {
+    font-size: 13px;
+    padding-top: 5px;
+    padding-bottom: 15px;
+}
+
+.repositories-list-item__footer {
+    font-size: 12px;
+    display: flex;
+    opacity: .8;
+    justify-content: space-between;
+}
+
+.repositories-list-item__stars {
+    display: flex;
+    align-items: center;
+}
+
+.repositories-list-item__stars:before {
+    content: '';
+    width: 15px;
+    height: 15px;
+    background-image: url(./star.png);
+    background-position: center;
+    background-size: cover;
+    margin-right: 5px;
+}
