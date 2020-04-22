@@ -11,7 +11,7 @@ export default class Header extends Component {
         this.props.updateInputValue(value);
     }
 
-    render() {
+    render(){
             return (
                 <div className='header'>
                     <img className='header__logo' src={icon} alt="GitHub icon"/>

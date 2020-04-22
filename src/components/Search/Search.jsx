@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import {debounce} from '../../utils/debounce'
 import './Search.css'
 
 export default class Search extends Component {
@@ -19,18 +19,7 @@ export default class Search extends Component {
         }
     }
 
-    debounce = (f, t) => {
-        return function (args) {
-            let previousCall = this.lastCall;
-            this.lastCall = Date.now();
-            if (previousCall && ((this.lastCall - previousCall) <= t)) {
-                clearTimeout(this.lastCallTimer);
-            }
-            this.lastCallTimer = setTimeout(() => f(args), t);
-        }
-    }
-
-    debounceSearchValue = this.debounce(this.onSearch, 500);
+    debounceSearchValue = debounce(this.onSearch, 500);
 
     render() {
         return (
