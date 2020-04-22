@@ -1,8 +1,9 @@
 import React from 'react';
-
+import {dateConverter} from '../../services/date-service'
 import './RepositoriesListItem.css'
 
 function RepositoriesListItem({name, url, stars, description, date}) {
+    
     return (
         <div className='repositories-list-item'>
             <a  className='repositories-list-item__name' 
@@ -14,7 +15,7 @@ function RepositoriesListItem({name, url, stars, description, date}) {
             <div className='repositories-list-item__description'>{description}</div>
             <div className='repositories-list-item__footer' >
                 <div className='repositories-list-item__stars'>{stars}</div>
-                <time className='repositories-list-item__date' >{date}</time>
+                <time className='repositories-list-item__date' >{ `Updated on ${dateConverter(date)}` }</time>
             </div>
         </div>
     );

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 import './App.css';
-import GithubApiService from '../../services/github-api-service';
+import GithubApiService from '../../services/api-service';
 
 import Header from '../Header/Header';
 import RepositoriesList from '../RepositoriesList/RepositoriesList'
@@ -10,7 +10,7 @@ import ErrorIndicator from '../ErrorIndicator/ErrorIndicator'
 
 export default class App extends Component {
 
-    GithubApiService = new GithubApiService();
+    apiService = new GithubApiService();
 
     state = {
         data: [],
@@ -42,7 +42,7 @@ export default class App extends Component {
     updateData(value) {
         this.setState({ loading: true })
         
-        this.GithubApiService
+        this.apiService
             .getReposInfo(value)
             .then(this.onDataLoaded)
             .catch(this.onError);

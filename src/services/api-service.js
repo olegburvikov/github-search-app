@@ -28,17 +28,13 @@ export default class GithubApiService {
         url : repos.html_url,
         description: repos.description,
         stars: repos.stargazers_count,
-        date: `Updated on ${dateConverter(repos.updated_at)}` 
+        date: repos.updated_at 
       }
     }
     
   }
 
-function dateConverter(datestring) {
-    const monthArr = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'June', 'July', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec'];
-    let convertDate = new Date( Date.parse(datestring) );
-    return `${convertDate.getDate()} ${monthArr[convertDate.getMonth()]} ${convertDate.getFullYear()}`;
-}
+
 
 
 
