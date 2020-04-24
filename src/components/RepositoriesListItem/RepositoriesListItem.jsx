@@ -2,8 +2,7 @@ import React from 'react';
 import {dateConverter} from '../../services/date-service'
 import './RepositoriesListItem.css'
 
-function RepositoriesListItem({name, url, stars, description, date}) {
-    
+const RepositoriesListItem = ({name, url, stars, description, date}) => {
     return (
         <div className='repositories-list-item'>
             <a  className='repositories-list-item__name' 

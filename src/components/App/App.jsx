@@ -1,14 +1,17 @@
 import React, { Component } from 'react';
-
+import {connect} from 'react-redux'
 import './App.css';
 import GithubApiService from '../../services/api-service';
+import PropTypes from 'prop-types'
 
 import Header from '../Header/Header';
 import RepositoriesList from '../RepositoriesList/RepositoriesList'
 import Spinner from '../Spinner/Spinner';
 import ErrorIndicator from '../ErrorIndicator/ErrorIndicator'
 
-export default class App extends Component {
+class App extends Component {
+
+   
 
     apiService = new GithubApiService();
 
@@ -31,7 +34,6 @@ export default class App extends Component {
     }
 
     onDataLoaded = (data) => {
-        console.log('request', this.state.inputValue);
         this.setState({ 
             data,
             loading: false,
@@ -50,20 +52,20 @@ export default class App extends Component {
 
     render() {
         const {data, loading, inputValue, error} = this.state;
-
-        const spinner = loading ? <Spinner/> : null;
         const content = !(loading || error) && inputValue !== '' ? <RepositoriesList data={ data } /> : null;
-        const errorMessage = error ? <ErrorIndicator/> : null;
 
         return (
             <div className='app' >
                 <Header updateInputValue={this.updateInputValue} />
                 {content}
-                {spinner}
-                {errorMessage}
+                {loading && <Spinner/>}
+                {error && <ErrorIndicator/>}
             </div>
         );
     }
-    
 }
+
+
+
+export default connect()(App);
 
