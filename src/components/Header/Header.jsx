@@ -1,22 +1,23 @@
-import React, { Component } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types'
 
 import './Header.css'
-import icon from './icon-github.svg';
+import iconSVG from './icon-github.svg';
 import Search from '../Search/Search';
 
-export default class Header extends Component {
+const Header = () => {
 
-    getSearchValue = (value) => {
-        this.props.updateInputValue(value);
-    }
+    return (
+        <div className='header'>
+            <img className='header__logo' src={iconSVG} alt="GitHub icon"/>
+            <Search />
+        </div>
+    );
 
-    render() {
-        return (
-            <div className='header'>
-                <img className='header__logo' src={icon} alt="GitHub icon"/>
-                <Search getSearchValue={this.getSearchValue} />
-            </div>
-        );
-    }
     
 }
+Header.propTypes = {
+    onInputValue: PropTypes.func.isRequired
+}
+
+export default Header;

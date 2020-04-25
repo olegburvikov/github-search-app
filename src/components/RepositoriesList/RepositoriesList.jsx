@@ -1,5 +1,5 @@
 import React from 'react';
-
+import PropTypes from 'prop-types'
 import './RepositoriesList.css';
 
 import RepositoriesListItem from '../RepositoriesListItem/RepositoriesListItem';
@@ -14,5 +14,9 @@ const RepositoriesList = ({data = []}) => {
         </ul>
     );
 }
+
+RepositoriesList.propTypes = {
+    data: PropTypes.array.isRequired
+}       
 
 export default RepositoriesList;

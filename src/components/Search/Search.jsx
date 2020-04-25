@@ -1,9 +1,12 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 import { debounce } from 'lodash'
 import './Search.css'
+import { useDispatch } from 'react-redux';
+import { fetchRepos } from '../../redux/actions';
 
-const Search = ({getSearchValue}) => {
-
+const Search = () => {
+    const dispatch = useDispatch()
     const [inputValue, setInputValue] = useState('')
     
     const handleInput = (event) => {
@@ -13,7 +16,7 @@ const Search = ({getSearchValue}) => {
 
     const onSearch = () => {
         if(inputValue !== '') {
-            getSearchValue(inputValue)
+            dispatch(fetchRepos(inputValue))
         }
     }
     const debouncedSearchValue = debounce(onSearch, 500);
@@ -27,5 +30,6 @@ const Search = ({getSearchValue}) => {
     );
     
 };
+
 
 export default Search;
