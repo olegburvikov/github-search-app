@@ -5,7 +5,7 @@ import './App.css';
 import Header from '../Header/Header';
 import RepositoriesList from '../RepositoriesList/RepositoriesList'
 import Spinner from '../Spinner/Spinner';
-import ErrorIndicator from '../ErrorIndicator/ErrorIndicator'
+import {ErrorIndicator} from '../ErrorIndicator/ErrorIndicator'
 
 class App extends Component {
 
