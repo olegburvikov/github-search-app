@@ -19,8 +19,6 @@ export default class GithubApiService {
       return data.items.map(this._transformDate);
     }
 
-  
-    
     _transformDate(repos) {        
       return {
         id: repos.id,

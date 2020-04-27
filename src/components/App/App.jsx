@@ -13,16 +13,15 @@ class App extends Component {
 
     render() {
 
-        // const {data, loading, inputValue, error} = this.state;        
-        // const content = !(loading || error) && inputValue !== '' ? <RepositoriesList data={ data } /> : null;
-        const data = this.props.items;
+        const {data, loading} = this.props;        
         return (
             <div className='app' >
                 <Header />
-                <RepositoriesList data={ data } />
-                {/* {content}
-                {loading && <Spinner/>}
-                {error && <ErrorIndicator/>} */}
+                {
+                    loading ? 
+                    <Spinner /> : 
+                    <RepositoriesList data={ data } />
+                }
             </div>
         );
     }
@@ -31,7 +30,8 @@ class App extends Component {
 
 const MapStateToProps = state => {
     return {
-        items: state.repositories.reposList
+        items: state.repositories.reposList,
+        loading: state.app.loading
     }
 }
 
