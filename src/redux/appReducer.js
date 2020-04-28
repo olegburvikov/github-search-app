@@ -1,7 +1,9 @@
-import { SHOW_LOADER,HIDE_LOADER } from "./actionTypes"
+import { SHOW_LOADER,HIDE_LOADER, SHOW_ERROR, IS_INPUT_EMPTY } from "./actionTypes"
 
 const initialState = {
-    loading: false
+    loading: false,
+    error: false,
+    isInputEmpty: true
 }
 
 export const appReducer = (state = initialState, action) => {
@@ -11,7 +13,13 @@ export const appReducer = (state = initialState, action) => {
             return { ...state, loading: true}
         case HIDE_LOADER:
             return { ...state, loading: false}
-        default: 
+        case IS_INPUT_EMPTY:
+            return { ...state, isInputEmpty: action.payload }
+
+        case SHOW_ERROR:
+            return { ...state, error: true}
+
+        default:
             return state
     }
 

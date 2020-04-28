@@ -1,3 +1,11 @@
+.repositories-list {
+    overflow-y: auto;
+    max-height: 85vh;
+}
+.repositories-list::-webkit-scrollbar { width: 5px; height: 3px;}
+.repositories-list::-webkit-scrollbar-track-piece { background-color: #ffffff;}
+.repositories-list::-webkit-scrollbar-thumb { background-color: #3F4448; border-radius: 50px;}
+
 .repositories-list-item {
     border-bottom: 1px solid #333;
     padding: 24px 10px;

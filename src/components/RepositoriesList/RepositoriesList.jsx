@@ -1,7 +1,5 @@
 import React from 'react';
-import PropTypes from 'prop-types'
-import { useSelector } from 'react-redux';
-
+import { useSelector } from 'react-redux'
 import './RepositoriesList.css';
 import RepositoriesListItem from '../RepositoriesListItem/RepositoriesListItem';
 
@@ -9,6 +7,9 @@ import RepositoriesListItem from '../RepositoriesListItem/RepositoriesListItem';
 const RepositoriesList = () => {
 
     const data = useSelector(state => state.repositories.reposList)
+    const isInputEmpty = useSelector(state => state.app.isInputEmpty)
+    
+    if (isInputEmpty) return null;
     return (
         
         <ul className='repositories-list' >
@@ -22,10 +23,6 @@ const RepositoriesList = () => {
             }
         </ul>
     );
-}
-
-// RepositoriesList.propTypes = {
-//     data: PropTypes.array.isRequired
-// }       
+}   
 
 export default RepositoriesList;

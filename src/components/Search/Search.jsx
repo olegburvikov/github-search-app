@@ -1,29 +1,26 @@
-import React, { useState } from 'react';
-import PropTypes from 'prop-types';
+import React from 'react';
 import { debounce } from 'lodash'
 import './Search.css'
 import { useDispatch } from 'react-redux';
-import { fetchRepos } from '../../redux/actions';
+import { fetchRepos, isInputEmpty } from '../../redux/actions';
 
-const Search = () => {
-    const dispatch = useDispatch()
-    const [inputValue, setInputValue] = useState('')
+export const Search = () => {
     
-    const handleInput = (event) => {
-        setInputValue({inputValue: event.target.value.trim()})
-        debouncedSearchValue();        
-    }
+    const dispatch = useDispatch()    
+    const handleChange = debounce(text => onSearch(text.trim()), 500)
 
-    const onSearch = () => {
-        if(inputValue !== '') {
-            dispatch(fetchRepos(inputValue))
+    const onSearch = (text) => {
+        if(text === '') {
+            dispatch(isInputEmpty(true))
+        } else {
+            dispatch(isInputEmpty(false))
+            dispatch(fetchRepos(text))
         }
     }
-    const debouncedSearchValue = debounce(onSearch, 500);
-
+    
     return (
         <input  
-            onInput={handleInput} 
+            onInput={(e) => handleChange(e.target.value)} 
             className='search' 
             placeholder='Please write some name of repository for search.' 
         />
@@ -31,5 +28,3 @@ const Search = () => {
     
 };
 
-
-export default Search;

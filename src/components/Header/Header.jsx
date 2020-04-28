@@ -1,9 +1,8 @@
 import React from 'react';
-import PropTypes from 'prop-types'
 
 import './Header.css'
 import iconSVG from './icon-github.svg';
-import Search from '../Search/Search';
+import {Search} from '../Search/Search';
 
 const Header = () => {
 
@@ -15,9 +14,6 @@ const Header = () => {
     );
 
     
-}
-Header.propTypes = {
-    onInputValue: PropTypes.func.isRequired
 }
 
 export default Header;

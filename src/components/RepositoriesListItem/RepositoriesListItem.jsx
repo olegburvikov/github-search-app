@@ -1,5 +1,5 @@
 import React from 'react';
-import {dateConverter} from '../../services/date-service'
+import {dateConverter} from '../../services/dateService'
 import PropTypes from 'prop-types'
 import './RepositoriesListItem.css'
 
@@ -25,7 +25,7 @@ RepositoriesListItem.propTypes = {
     name: PropTypes.string.isRequired,
     url: PropTypes.string.isRequired,
     stars: PropTypes.number.isRequired,
-    description: PropTypes.string.isRequired,
+    description: PropTypes.string,
     date: PropTypes.string.isRequired
 }
 
