@@ -7,4 +7,5 @@ Demo - http://burvikov-github-search.surge.sh/
 ## Used technologies
 - ReactJS
 - Redux
+- React Beautiful DND
 
