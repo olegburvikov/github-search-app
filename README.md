@@ -1,4 +1,4 @@
-In this project i wrote github repositories live search app using React/Redux.
+In this project i wrote live search for github repositories using React/Redux.
 
 Demo - http://burvikov-github-search.surge.sh/
 
